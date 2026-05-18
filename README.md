@@ -1,4 +1,4 @@
-# Bambule Store Clone - Practice Project
+# 🧸 Bambule Store - The Reconstruction
 
 This is a frontend practice project focused on replicating the interface and functionality of the **Bambule** online store.
 

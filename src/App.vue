@@ -1,5 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import PageHome from '@/pages/PageHome.vue';
+</script>
 
 <template>
-    <div></div>
+    <main>
+        <PageHome></PageHome>
+    </main>
 </template>

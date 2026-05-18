@@ -1,12 +1,18 @@
 @import 'tailwindcss';
 @import './base.css';
-@import './font-faces.css';
+@import './font-face.css';
+
+button,
+a {
+    cursor: pointer;
+}
 
 body {
-    background-color: var(--color-canvas);
-    color: #f8fafc;
-    font-family: var(--font-primary);
+    background-color: var(--color-base-white);
+    color: var(--color-base-black);
+    font-family: var(--font-primary, 'SF Pro', Candara);
     -webkit-font-smoothing: antialiased;
+    font-size: 0.875rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
