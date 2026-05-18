@@ -1,7 +1,6 @@
 import js from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
 import skipFormatting from 'eslint-config-prettier/flat';
-import pluginOxlint from 'eslint-plugin-oxlint';
 import perfectionist from 'eslint-plugin-perfectionist';
 import pluginVue from 'eslint-plugin-vue';
 import { defineConfig, globalIgnores } from 'eslint/config';
@@ -11,7 +10,6 @@ export default defineConfig([
     globalIgnores(['node_modules', 'dist', 'coverage']),
     js.configs.recommended,
     ...pluginVue.configs['flat/strongly-recommended'],
-    ...pluginOxlint.buildFromOxlintConfigFile('.oxlintrc.json'),
     {
         files: ['**/*.js', '**/*.vue'],
         languageOptions: {

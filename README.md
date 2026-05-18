@@ -12,8 +12,8 @@ This is a frontend practice project focused on replicating the interface and fun
 
 ## Getting Started
 
-````bash
+```bash
 pnpm install   # Install dependencies
-pnpm dev       # Run the app```
+pnpm dev       # Run the app
 
-````
+```

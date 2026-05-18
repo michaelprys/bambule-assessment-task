@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Chaloops';
+    src:
+        url('./fonts/chaloops.woff2') format('woff2'),
+        url('./fonts/chaloops.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AcuminPro';
+    src:
+        url('./fonts/acumin.woff2') format('woff2'),
+        url('./fonts/acumin.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
