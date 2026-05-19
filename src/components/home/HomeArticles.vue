@@ -31,7 +31,7 @@ const articles = [
 </script>
 
 <template>
-    <section id="articles" class="container-center">
+    <section id="articles" class="container-center mt-20">
         <div class="flex w-full items-center justify-between">
             <h2 class="font-secondary text-3xl">Bambule radí</h2>
 

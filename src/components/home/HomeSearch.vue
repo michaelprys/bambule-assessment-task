@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BaseButtonSecondary from '@/components/base/BaseButtonSecondary.vue';
 import BaseSelect from '@/components/base/BaseSelect.vue';
 import IconGift from '@/components/icons/IconGift.vue';
 import { ref } from 'vue';
@@ -27,9 +28,10 @@ const priceOptions = [
                 Vyhledejte dokonalý dárek
             </h2>
 
-            <div class="bg-app-pink-light mt-7 flex items-center rounded-4xl px-10 py-6">
-                <div class="flex items-center gap-10">
-                    <div class="flex items-center">
+            <div
+                class="mt-7 flex items-center rounded-4xl p-13.25 shadow-[0px_1px_32px_rgba(139,151,166,0.2)]">
+                <div class="flex items-center gap-6">
+                    <div class="bg-base-grey-light flex h-13 w-55 items-center rounded-2xl pl-4">
                         <input
                             id="boy"
                             v-model="gender"
@@ -37,18 +39,21 @@ const priceOptions = [
                             name="gender"
                             value="boy"
                             class="sr-only" />
-                        <label for="boy" class="flex cursor-pointer items-center gap-10">
+                        <label for="boy" class="flex cursor-pointer items-center">
                             <span class="flex items-center gap-3">
                                 <span
                                     class="flex h-6 w-6 items-center justify-center rounded-full transition-all duration-200"
-                                    :class="gender === 'boy' ? 'bg-base-black' : 'bg-base-grey'">
+                                    :class="
+                                        gender === 'boy' ? 'bg-base-grey' : 'bg-base-grey-light'
+                                    ">
                                     <span
-                                        class="h-2.5 w-2.5 rounded-full bg-white transition-transform duration-200"
+                                        class="bg-base-white h-2.5 w-2.5 rounded-full transition-transform duration-200"
                                         :class="gender === 'boy' ? 'scale-100' : 'scale-0'"></span>
                                 </span>
                                 <span class="font-bold whitespace-nowrap">Pro kluka</span>
                             </span>
                             <img
+                                class="ml-15"
                                 src="@img/search/search-boy.svg"
                                 width="63"
                                 height="72"
@@ -56,7 +61,7 @@ const priceOptions = [
                         </label>
                     </div>
 
-                    <div class="flex items-center">
+                    <div class="bg-base-grey-light flex h-13 w-49.75 items-center rounded-2xl pl-4">
                         <input
                             id="girl"
                             v-model="gender"
@@ -68,9 +73,9 @@ const priceOptions = [
                             <span class="flex items-center gap-3">
                                 <span
                                     class="flex h-6 w-6 items-center justify-center rounded-full transition-all duration-200"
-                                    :class="gender === 'girl' ? 'bg-base-black' : 'bg-base-grey'">
+                                    :class="gender === 'girl' ? 'bg-base-grey' : 'bg-base-grey'">
                                     <span
-                                        class="h-2.5 w-2.5 rounded-full bg-white transition-transform duration-200"
+                                        class="bg-base-white h-2.5 w-2.5 rounded-full transition-transform duration-200"
                                         :class="gender === 'girl' ? 'scale-100' : 'scale-0'"></span>
                                 </span>
                                 <span class="font-bold whitespace-nowrap">Pro holku</span>
@@ -85,14 +90,24 @@ const priceOptions = [
                 </div>
 
                 <div class="ml-auto flex items-center gap-4 whitespace-nowrap">
-                    <BaseSelect v-model="age" :options="ageOptions" placeholder="Věk dítěte" />
-                    <BaseSelect v-model="price" :options="priceOptions" placeholder="Max. cena" />
+                    <BaseSelect
+                        class="bg-base-grey-light h-13 rounded-2xl"
+                        v-model="age"
+                        :options="ageOptions"
+                        placeholder="Věk dítěte" />
+                    <BaseSelect
+                        class="bg-base-grey-light h-13 rounded-2xl"
+                        v-model="price"
+                        :options="priceOptions"
+                        placeholder="Max. cena" />
 
-                    <button
-                        class="bg-base-black text-base-white flex w-50 items-center justify-center gap-2.5 rounded-2xl px-8 py-4 font-bold transition-opacity duration-200 hover:opacity-90">
-                        <IconGift />
+                    <BaseButtonSecondary class="flex h-13 w-50 gap-2.5 px-[2.15625em] py-5.25">
+                        <template #icon>
+                            <IconGift />
+                        </template>
+
                         <span>Vyhledat dárek</span>
-                    </button>
+                    </BaseButtonSecondary>
                 </div>
             </div>
         </div>

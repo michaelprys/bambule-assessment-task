@@ -3,6 +3,25 @@ import BaseDetailsBadge from '@/components/base/BaseDetailsBadge.vue';
 import useEmblaCarousel from 'embla-carousel-vue';
 import { ref, watch } from 'vue';
 
+const promos = [
+    {
+        slug: 'geomag',
+        alt: 'Geomag promo',
+    },
+    {
+        slug: 'friends',
+        alt: 'Friends promo',
+    },
+    {
+        slug: 'club',
+        alt: 'Club promo',
+    },
+];
+
+const getImg = (slug: string, ext: string) => {
+    return new URL(`../../assets/images/hero/hero-${slug}.${ext}`, import.meta.url).href;
+};
+
 // const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 4000 })]);
 const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
@@ -70,36 +89,21 @@ watch(emblaApi, (api) => {
         </div>
 
         <div class="ml-4 flex flex-col gap-4">
-            <RouterLink class="relative" to="/">
-                <img
-                    class="h-38.5 w-125.75 rounded-2xl object-cover"
-                    src="@img/hero/hero-geomag.webp"
-                    width="1006"
-                    height="308"
-                    alt="Geomag promo" />
+            <div class="relative" v-for="promo in promos" :key="promo.slug">
+                <picture>
+                    <source :srcset="getImg(promo.slug, 'avif')" type="image/avif" />
+                    <img
+                        class="h-38.5 w-125.75 rounded-2xl object-cover"
+                        :src="getImg(promo.slug, 'webp')"
+                        width="1006"
+                        height="308"
+                        :alt="`${promo.alt} promo`" />
+                </picture>
 
-                <BaseDetailsBadge />
-            </RouterLink>
-            <RouterLink class="relative" to="/">
-                <img
-                    class="h-38.5 w-125.75 rounded-2xl object-cover"
-                    src="@img/hero/hero-friends.webp"
-                    width="1006"
-                    height="308"
-                    alt="Friends promo" />
-
-                <BaseDetailsBadge />
-            </RouterLink>
-            <RouterLink class="relative" to="/">
-                <img
-                    class="h-38.5 w-125.75 rounded-2xl object-cover"
-                    src="@img/hero/hero-club.webp"
-                    width="1006"
-                    height="308"
-                    alt="Club promo" />
-
-                <BaseDetailsBadge />
-            </RouterLink>
+                <RouterLink to="/">
+                    <BaseDetailsBadge />
+                </RouterLink>
+            </div>
         </div>
     </section>
 </template>

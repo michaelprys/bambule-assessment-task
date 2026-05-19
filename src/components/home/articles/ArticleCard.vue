@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import BaseButtonPrimary from '@/components/base/BaseButtonPrimary.vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
 const props = defineProps<{
     id: number;
     badge: string;
@@ -17,7 +22,8 @@ const getImg = (ext: string) => {
 <template>
     <div class="flex w-full flex-col gap-5">
         <div class="overflow-hidden rounded-[2.5rem]">
-            <picture class="block aspect-[1.6/1] w-full">
+            <picture
+                class="block aspect-[1.6/1] w-full transition-transform duration-200 hover:scale-105">
                 <source :srcset="getImg('avif')" type="image/avif" />
                 <img :src="getImg('webp')" :alt="alt" class="h-full w-full object-cover" />
             </picture>
@@ -33,11 +39,7 @@ const getImg = (ext: string) => {
             <h3 class="text-xl leading-tight font-bold">{{ title }}</h3>
             <p class="line-clamp-3 text-[1.125rem] leading-relaxed text-gray-500">{{ text }}</p>
 
-            <RouterLink
-                to="/"
-                class="mt-2 inline-flex items-center justify-center rounded-lg border border-black bg-white px-5 py-2 text-[15px] font-bold shadow-[0_2px_0_0_rgba(0,0,0,1)] transition-all hover:translate-y-px hover:shadow-none">
-                Celý článek
-            </RouterLink>
+            <BaseButtonPrimary @click="router.push('/')">Celý článek</BaseButtonPrimary>
         </div>
     </div>
 </template>
