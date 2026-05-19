@@ -8,7 +8,7 @@ This is a frontend practice project focused on replicating the interface and fun
 - **Build Tool:** Vite
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS v4.0
-- **Code Quality:** ESLint
+- **Code Quality:** ESLint, ESLint Stylistic
 
 ## Getting Started
 

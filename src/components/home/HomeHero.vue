@@ -2,7 +2,8 @@
 import useEmblaCarousel from 'embla-carousel-vue';
 import { ref, watch } from 'vue';
 
-const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
+// const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 4000 })]);
+const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
 const selectedIndex = ref(0);
 const scrollSnaps = ref<number[]>([]);
@@ -38,7 +39,7 @@ watch(emblaApi, (api) => {
                             <img
                                 class="hero-img rounded-2xl"
                                 src="@img/hero/hero-mastercard.webp"
-                                alt="Mastercard" />
+                                alt="Hero mastercard" />
                         </picture>
                     </div>
                     <div class="embla__slide">
@@ -47,7 +48,7 @@ watch(emblaApi, (api) => {
                             <img
                                 class="hero-img rounded-2xl"
                                 src="@img/hero/hero-holiday-tips.webp"
-                                alt="Holiday Tips" />
+                                alt="Holiday tips" />
                         </picture>
                     </div>
                 </div>
@@ -66,18 +67,30 @@ watch(emblaApi, (api) => {
         </div>
 
         <div class="ml-4 flex flex-col gap-4">
-            <img
-                class="h-38.5 w-125.75 rounded-2xl object-cover"
-                src="@img/hero/hero-geomag.webp"
-                alt="Geomag" />
-            <img
-                class="h-38.5 w-125.75 rounded-2xl object-cover"
-                src="@img/hero/hero-friends.webp"
-                alt="Friends" />
-            <img
-                class="h-38.5 w-125.75 rounded-2xl object-cover"
-                src="@img/hero/hero-club.webp"
-                alt="Club" />
+            <RouterLink to="/">
+                <img
+                    class="h-38.5 w-125.75 rounded-2xl object-cover"
+                    src="@img/hero/hero-geomag.webp"
+                    width="1006"
+                    height="308"
+                    alt="Geomag promo" />
+            </RouterLink>
+            <RouterLink to="/">
+                <img
+                    class="h-38.5 w-125.75 rounded-2xl object-cover"
+                    src="@img/hero/hero-friends.webp"
+                    width="1006"
+                    height="308"
+                    alt="Friends promo" />
+            </RouterLink>
+            <RouterLink to="/">
+                <img
+                    class="h-38.5 w-125.75 rounded-2xl object-cover"
+                    src="@img/hero/hero-club.webp"
+                    width="1006"
+                    height="308"
+                    alt="Club promo" />
+            </RouterLink>
         </div>
     </section>
 </template>
@@ -90,12 +103,13 @@ watch(emblaApi, (api) => {
 
 .embla__container {
     display: flex;
-    gap: 1.5rem;
+    margin-left: -1.5rem;
 }
 
 .embla__slide {
     flex: 0 0 100%;
     min-width: 0;
+    padding-left: 1.5rem;
 }
 
 .hero-img {

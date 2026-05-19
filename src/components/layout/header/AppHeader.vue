@@ -8,7 +8,7 @@ import HeaderTopNav from '@/components/layout/header/HeaderTopNav.vue';
     <header class="bg-base-white container-center mt-5">
         <div class="flex items-center justify-between">
             <RouterLink class="shrink-0" to="/">
-                <img src="@img/common/logo.svg" width="218" height="70" alt="Bambule logo" />
+                <img src="@img/base/logo.svg" width="218" height="70" alt="Bambule logo" />
             </RouterLink>
 
             <HeaderSearch />
