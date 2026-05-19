@@ -21,8 +21,8 @@ export const categories: Category[] = [
         slug: 'paw-patrol',
         color: 'var(--background-image-bubble-yellow)',
         alt: 'Paw Patrol toys',
-        rotate: 90,
-        scaleX: -1,
+        rotate: -90,
+        scaleX: 1,
     },
     {
         name: 'My Fairy Garden',

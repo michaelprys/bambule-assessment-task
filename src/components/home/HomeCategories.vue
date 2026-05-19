@@ -18,38 +18,39 @@ const getImg = (slug: string, ext: string) => {
             </RouterLink>
         </div>
 
-        <div class="flex flex-wrap items-center justify-center gap-12">
+        <ul class="flex flex-wrap items-center justify-center gap-12">
             <RouterLink
+                class="flex flex-col items-center"
                 to="/"
                 v-for="category in categories"
-                :key="category.name"
-                class="flex flex-col items-center">
-                <div class="bubble-shadow relative h-[11.8rem] w-[11.4rem]">
-                    <div
-                        class="bubble-wrapper h-full w-full transition-transform duration-500"
-                        :style="{
-                            transform: `rotate(${category.rotate}deg) scaleX(${category.scaleX})`,
-                        }">
-                        <div class="bubble-fill" :style="{ backgroundImage: category.color }" />
-                        <div class="bubble-stroke" />
+                :key="category.name">
+                <li>
+                    <div class="bubble-shadow relative h-[11.8rem] w-[11.4rem]">
+                        <div
+                            class="bubble-wrapper h-full w-full transition-transform duration-500"
+                            :style="{
+                                transform: `rotate(${category.rotate}deg) scaleX(${category.scaleX})`,
+                            }">
+                            <div class="bubble-fill" :style="{ backgroundImage: category.color }" />
+                            <div class="bubble-stroke" />
+                        </div>
+
+                        <picture
+                            class="pointer-events-none absolute inset-0 z-10 flex items-center justify-center p-2">
+                            <source :srcset="getImg(category.slug, 'avif')" type="image/avif" />
+                            <img
+                                class="h-[75%] w-[75%] object-contain"
+                                :src="getImg(category.slug, 'webp')"
+                                :alt="category.alt" />
+                        </picture>
                     </div>
 
-                    <picture
-                        class="pointer-events-none absolute inset-0 z-10 flex items-center justify-center p-2">
-                        <source :srcset="getImg(category.slug, 'avif')" type="image/avif" />
-                        <img
-                            class="h-[75%] w-[75%] object-contain"
-                            :src="getImg(category.slug, 'webp')"
-                            :alt="category.alt" />
-                    </picture>
-                </div>
-
-                <p
-                    class="mt-4 text-center text-base font-bold underline decoration-2 underline-offset-4">
-                    {{ category.name }}
-                </p>
+                    <p class="mt-4 text-center text-base font-bold underline">
+                        {{ category.name }}
+                    </p>
+                </li>
             </RouterLink>
-        </div>
+        </ul>
     </section>
 </template>
 

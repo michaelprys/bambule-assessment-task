@@ -23,12 +23,12 @@
 
     /* Background gradient */
 
-    --background-image-bubble-blue: radial-gradient(circle, #ffffff, #a1daf9);
+    --background-image-bubble-blue: radial-gradient(circle, #ffffff, #a1daf9 150%);
     --background-image-bubble-yellow: radial-gradient(circle, #ffffff, #ffed98);
-    --background-image-bubble-pink: radial-gradient(circle, #ffffff, #f7bdc3);
-    --background-image-bubble-peach: radial-gradient(circle, #ffffff, #fccb8e);
-    --background-image-bubble-lilac: radial-gradient(circle, #ffffff, #d0bcdd);
-    --background-image-bubble-lime: radial-gradient(circle, #ffffff, var(--color-app-lime));
+    --background-image-bubble-pink: radial-gradient(circle, #ffffff, #f7bdc3 150%);
+    --background-image-bubble-peach: radial-gradient(circle, #ffffff, #fccb8e 150%);
+    --background-image-bubble-lilac: radial-gradient(circle, #ffffff, #d0bcdd 150%);
+    --background-image-bubble-lime: radial-gradient(circle, #ffffff, #afca0a 150%);
 
     /* Fonts */
 
