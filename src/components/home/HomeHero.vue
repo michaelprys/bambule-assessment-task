@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BaseDetailsBadge from '@/components/base/BaseDetailsBadge.vue';
 import useEmblaCarousel from 'embla-carousel-vue';
 import { ref, watch } from 'vue';
 
@@ -30,6 +31,8 @@ watch(emblaApi, (api) => {
 
 <template>
     <section id="hero" class="container-center mt-7.25 flex">
+        <h1 class="sr-only">Vítejte v Bambule - Království hraček</h1>
+
         <div class="relative min-w-0 flex-1">
             <div class="embla" ref="emblaRef">
                 <div class="embla__container">
@@ -67,29 +70,35 @@ watch(emblaApi, (api) => {
         </div>
 
         <div class="ml-4 flex flex-col gap-4">
-            <RouterLink to="/">
+            <RouterLink class="relative" to="/">
                 <img
                     class="h-38.5 w-125.75 rounded-2xl object-cover"
                     src="@img/hero/hero-geomag.webp"
                     width="1006"
                     height="308"
                     alt="Geomag promo" />
+
+                <BaseDetailsBadge />
             </RouterLink>
-            <RouterLink to="/">
+            <RouterLink class="relative" to="/">
                 <img
                     class="h-38.5 w-125.75 rounded-2xl object-cover"
                     src="@img/hero/hero-friends.webp"
                     width="1006"
                     height="308"
                     alt="Friends promo" />
+
+                <BaseDetailsBadge />
             </RouterLink>
-            <RouterLink to="/">
+            <RouterLink class="relative" to="/">
                 <img
                     class="h-38.5 w-125.75 rounded-2xl object-cover"
                     src="@img/hero/hero-club.webp"
                     width="1006"
                     height="308"
                     alt="Club promo" />
+
+                <BaseDetailsBadge />
             </RouterLink>
         </div>
     </section>

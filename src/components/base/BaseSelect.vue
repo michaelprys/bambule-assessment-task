@@ -33,7 +33,7 @@ defineProps<{
         <Transition name="dropdown">
             <div
                 v-if="isOpen"
-                class="bg-base-white dark:bg-base-grey absolute top-14 right-5 z-20 mt-2 w-48 origin-top-right rounded-md shadow-xl">
+                class="bg-base-black absolute top-14 right-5 z-20 mt-2 w-48 origin-top-right rounded-md shadow-xl">
                 <button
                     v-for="option in options"
                     :key="option.value"
