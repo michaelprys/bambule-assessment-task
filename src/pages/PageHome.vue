@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import HomeArticles from '@/components/home/HomeArticles.vue';
 import HomeBrands from '@/components/home/HomeBrands.vue';
 import HomeCategories from '@/components/home/HomeCategories.vue';
 import HomeHero from '@/components/home/HomeHero.vue';
@@ -16,6 +17,7 @@ import AppHeader from '@/components/layout/header/AppHeader.vue';
             <HomeSearch />
             <HomeCategories />
             <HomeBrands />
+            <HomeArticles />
         </main>
 
         <AppFooter />
