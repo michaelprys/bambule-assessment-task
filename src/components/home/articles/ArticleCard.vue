@@ -31,7 +31,7 @@ const getImg = (ext: string) => {
 
         <div class="mt-6 flex flex-1 flex-col items-start">
             <span
-                class="font-secondary rounded-full px-4 py-1.5 text-[0.8125rem] text-white"
+                class="font-secondary text-base-white rounded-full px-4 py-1.5 text-[0.8125rem]"
                 :style="{ backgroundColor: `var(--color-app-${badgeColor})` }">
                 {{ badge }}
             </span>

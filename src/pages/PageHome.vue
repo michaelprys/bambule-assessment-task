@@ -13,21 +13,19 @@ import HomeHero from '@/components/home/HomeHero.vue';
 </script>
 
 <template>
-    <div>
-        <AppHeader />
+    <AppHeader />
 
-        <main>
-            <HomeHero />
-            <HomeSearch />
-            <HomeCategories />
-            <HomeBrands />
-            <HomeRecommended />
-            <HomeNewArrivals />
-            <HomeSellOut />
-            <HomeLastViewed />
-            <HomeArticles />
-        </main>
+    <main>
+        <HomeHero />
+        <HomeSearch />
+        <HomeCategories />
+        <HomeBrands />
+        <HomeRecommended />
+        <HomeNewArrivals />
+        <HomeSellOut />
+        <HomeLastViewed />
+        <HomeArticles />
+    </main>
 
-        <AppFooter />
-    </div>
+    <AppFooter />
 </template>

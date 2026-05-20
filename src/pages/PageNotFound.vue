@@ -15,7 +15,7 @@
 
                 <RouterLink
                     to="/"
-                    class="bg-base-black hover:bg-base-black/90 mt-10 inline-block rounded-xl px-10 py-4 text-white shadow-lg shadow-black/10 transition-all">
+                    class="bg-base-black hover:bg-base-black/90 text-base-white mt-10 inline-block rounded-xl px-10 py-4 shadow-lg shadow-black/10 transition-all">
                     Zpět na hlavní stranu
                 </RouterLink>
             </div>

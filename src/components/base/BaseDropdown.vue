@@ -11,7 +11,7 @@ defineProps<{
             v-if="isOpen"
             :class="[
                 align === 'right' ? 'right-0 origin-top-right' : 'left-0 origin-top-left',
-                'absolute top-full z-100 mt-2 min-w-60 rounded-[1.75rem] bg-white shadow-[0_1.25rem_3.75rem_-0.625rem_rgba(0,0,0,0.3)]',
+                'absolute top-full z-100 mt-2 min-w-60 rounded-[1.75rem] bg-white shadow-sm ring-1 ring-black/5',
             ]">
             <div class="flex flex-col p-2">
                 <slot />

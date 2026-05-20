@@ -31,7 +31,6 @@ const ui = computed(() => ({
     wrapper: isCompact.value ? 'max-w-[13.5rem]' : 'max-w-[21.25rem]',
     bg: isCompact.value ? 'h-[13.5rem]' : 'h-[21.25rem]',
     img: isCompact.value ? 'h-[11.25rem] w-[11.25rem]' : 'h-[17.5rem] w-[17.5rem]',
-    text: isCompact.value ? 'text-sm' : 'text-base',
 }));
 
 const getImg = (slug: string, ext: string) => {
@@ -85,7 +84,7 @@ const formatPrice = (value: number) => {
                 <span class="ml-3 text-xs">{{ product.reviews }}x</span>
             </div>
 
-            <h3 :class="['truncate font-medium', ui.text]" :title="product.title">
+            <h3 :class="['truncate font-medium']" :title="product.title">
                 {{ product.title }}
             </h3>
 
@@ -99,10 +98,11 @@ const formatPrice = (value: number) => {
             </div>
 
             <div class="mt-3 flex min-h-6 flex-wrap items-center gap-x-3 gap-y-2">
-                <span v-if="product.oldPrice" class="text-base-black text-sm line-through">
+                <span v-if="product.oldPrice" class="text-base-black text-base line-through">
                     {{ formatPrice(product.oldPrice) }} Kč
                 </span>
                 <span
+                    class="text-base"
                     :class="[
                         'font-bold',
                         ui.text,
@@ -111,7 +111,7 @@ const formatPrice = (value: number) => {
                     {{ formatPrice(product.price) }} Kč
                 </span>
 
-                <div v-if="!isCompact && product.clubPrice" class="sale-badge flex-shrink-0">
+                <div v-if="!isCompact && product.clubPrice" class="sale-badge shrink-0">
                     <span
                         class="text-base-white flex h-full w-full items-center justify-center pr-3 text-[11px] leading-none font-bold">
                         Klub: {{ formatPrice(product.clubPrice) }} Kč

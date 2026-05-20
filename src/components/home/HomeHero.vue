@@ -45,7 +45,7 @@ watch(emblaApi, (api) => {
         class="container-center mt-7 grid grid-cols-1 gap-4 xl:grid-cols-[1fr_31.4375rem]">
         <h1 class="sr-only">Vítejte v Bambule - Království hraček</h1>
 
-        <div class="relative min-w-0">
+        <div class="relative max-h-123.75 min-w-0">
             <div class="embla h-full" ref="emblaRef">
                 <div class="embla__container h-full">
                     <div class="embla__slide">
