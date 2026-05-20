@@ -14,11 +14,12 @@ const getImg = (name: string, ext: string) => {
     <section id="recommended" class="container-center mt-[4.981875rem]">
         <h2 class="font-secondary text-3xl">Doporučujeme</h2>
 
-        <div class="mt-7 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div
+            class="mt-7 grid grid-cols-1 place-items-center items-center gap-6 md:grid-cols-2 xl:grid-cols-3">
             <div
                 v-for="rec in recommended"
                 :key="rec.id"
-                class="relative aspect-459/325 w-full overflow-hidden rounded-3xl bg-gray-50">
+                class="relative h-81.25 w-full max-w-114.75 overflow-hidden rounded-3xl bg-gray-50">
                 <picture class="absolute inset-0">
                     <source :srcset="getImg(`rec-${rec.slug}`, 'avif')" type="image/avif" />
                     <img
@@ -30,13 +31,12 @@ const getImg = (name: string, ext: string) => {
                 <div
                     class="absolute inset-0 flex flex-col items-center justify-end px-6 pb-[8%] text-center">
                     <div class="flex w-full flex-col items-center">
-                        <h3
-                            class="font-secondary mt-5.5 w-full text-xl leading-tight sm:text-base md:text-lg lg:text-xl xl:text-2xl">
+                        <h3 class="font-secondary mt-5.5 w-full text-2xl leading-tight">
                             {{ rec.title }}
                         </h3>
 
                         <div
-                            class="mt-3 flex flex-wrap justify-center gap-x-1.5 text-sm leading-none font-medium sm:text-[11px] md:text-xs lg:text-sm xl:text-base">
+                            class="mt-3 flex flex-wrap justify-center gap-x-1.5 text-base leading-none font-medium">
                             <RouterLink
                                 v-for="(link, idx) in rec.links"
                                 :key="idx"
@@ -46,9 +46,9 @@ const getImg = (name: string, ext: string) => {
                             </RouterLink>
                         </div>
 
-                        <div class="mt-4 sm:mt-2.5 lg:mt-6">
+                        <div class="mt-6">
                             <BaseButtonSecondary
-                                class="h-10 min-w-36 px-6 text-sm sm:h-8 sm:min-w-28 sm:px-4 sm:text-xs lg:h-9 lg:min-w-32 lg:text-sm xl:h-11 xl:min-w-40"
+                                class="h-11 min-w-40 px-6 text-sm"
                                 @click="router.push('/')">
                                 Celá kategorie
                             </BaseButtonSecondary>

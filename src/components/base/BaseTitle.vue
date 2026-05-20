@@ -9,7 +9,7 @@ defineProps<{
 </script>
 
 <template>
-    <div class="flex items-center justify-between">
+    <div class="flex items-center justify-between gap-4">
         <h2 class="font-secondary text-3xl">{{ title }}</h2>
 
         <RouterLink :to="link" class="flex items-center gap-2 underline">

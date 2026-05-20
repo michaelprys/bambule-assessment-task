@@ -7,6 +7,6 @@
             <img src="@img/footer/footer.webp" alt="" />
         </picture>
 
-        <div class="bg-base-black -mt0rem min-h-152.5"></div>
+        <div class="bg-base-black -mt-px min-h-152.5"></div>
     </section>
 </template>

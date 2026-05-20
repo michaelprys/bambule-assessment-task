@@ -25,7 +25,7 @@ import HeaderTopNav from '@/components/layout/header/HeaderTopNav.vue';
             </div>
         </div>
 
-        <div class="mt-4 max-lg:overflow-x-auto lg:overflow-visible lg:border-none lg:pt-0">
+        <div class="mt-4 lg:border-none lg:pt-0">
             <HeaderBottomNav />
         </div>
     </header>

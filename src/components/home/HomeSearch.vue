@@ -32,7 +32,8 @@ const priceOptions = [
             class="search-form-container relative z-0 rounded-xl bg-white px-6 pt-12 pb-8 shadow-[0px_1px_32px_rgba(139,151,166,0.15)] lg:px-13 lg:pt-14 lg:pb-11.75">
             <div class="flex flex-col gap-6 xl:flex-row xl:items-center">
                 <div class="flex w-full flex-1 flex-col gap-6 lg:gap-4 xl:flex-row xl:items-center">
-                    <div class="grid grid-cols-2 gap-4 md:gap-6 xl:flex xl:items-center xl:gap-0">
+                    <div
+                        class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 xl:flex xl:items-center xl:gap-0">
                         <label
                             class="bg-base-grey-light relative flex h-13 w-full cursor-pointer items-center justify-between rounded-xl pl-4 transition-colors xl:mr-8 xl:w-55">
                             <input
@@ -57,7 +58,7 @@ const priceOptions = [
                             </div>
 
                             <img
-                                class="pointer-events-none absolute right-1 h-14 w-auto shrink-0 select-none sm:h-18 xl:-right-4"
+                                class="pointer-events-none absolute right-0 h-14 w-auto shrink-0 select-none sm:-right-2 sm:h-18 xl:-right-4"
                                 src="@img/search/search-boy.svg"
                                 alt="Boy" />
                         </label>
@@ -86,13 +87,13 @@ const priceOptions = [
                             </div>
 
                             <img
-                                class="pointer-events-none absolute right-1 h-14 w-auto shrink-0 select-none sm:h-18 xl:-right-10"
+                                class="pointer-events-none absolute right-0 h-14 w-auto shrink-0 select-none sm:-right-6 sm:h-18 xl:-right-10"
                                 src="@img/search/search-girl.svg"
                                 alt="Girl" />
                         </label>
                     </div>
 
-                    <div class="grid flex-1 grid-cols-2 gap-4 md:gap-6 xl:gap-6">
+                    <div class="grid flex-1 grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 xl:gap-6">
                         <BaseSelect
                             v-model="age"
                             :options="ageOptions"
