@@ -98,22 +98,22 @@ const formatPrice = (value: number) => {
                 </RouterLink>
             </div>
 
-            <div class="mt-3 flex min-h-6 flex-wrap items-center">
+            <div class="mt-3 flex min-h-6 flex-wrap items-center gap-x-3 gap-y-2">
                 <span v-if="product.oldPrice" class="text-base-black text-sm line-through">
                     {{ formatPrice(product.oldPrice) }} Kč
                 </span>
                 <span
                     :class="[
-                        'ml-2 font-bold',
+                        'font-bold',
                         ui.text,
                         product.oldPrice ? 'text-app-magenta' : 'text-base-black',
                     ]">
                     {{ formatPrice(product.price) }} Kč
                 </span>
 
-                <div v-if="!isCompact && product.clubPrice" class="sale-badge ml-3 pr-2">
+                <div v-if="!isCompact && product.clubPrice" class="sale-badge flex-shrink-0">
                     <span
-                        class="text-base-white flex h-6 w-25.5 items-center justify-center text-xs whitespace-nowrap">
+                        class="text-base-white flex h-full w-full items-center justify-center pr-3 text-[11px] leading-none font-bold">
                         Klub: {{ formatPrice(product.clubPrice) }} Kč
                     </span>
                 </div>

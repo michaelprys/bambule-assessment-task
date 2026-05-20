@@ -13,8 +13,8 @@ export const articlesData: Article[] = [
         badge: 'Odborný článek',
         badgeColor: 'purple',
         title: 'Odměňování za vysvědčení?',
-        text: 'O tom, jak zvládnout stres jsme psali minule. Dnes se podíváme na téma odměн за „vysvědčení“. Záměrně jej dávám do uvozovek, protože...',
-        alt: 'Odměňování за vysvědčení',
+        text: 'O tom, jak zvládnout stres jsme psali minule. Dnes se podíváme na téma odměn za „vysvědčení“. Záměrně jej dávám do uvozovek, protože...',
+        alt: 'Odměňování za vysvědčení',
     },
     {
         id: 2,

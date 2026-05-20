@@ -19,7 +19,7 @@ defineProps<{
 <template>
     <div class="relative w-full" ref="target">
         <button
-            class="flex w-full items-center justify-between gap-4 p-4 lg:min-w-60 lg:p-5"
+            class="flex w-full items-center justify-between gap-4 p-4 lg:min-w-67 lg:p-5"
             type="button"
             @click="isOpen = !isOpen">
             <span class="text-base-grey">

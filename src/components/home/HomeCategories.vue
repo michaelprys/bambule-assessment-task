@@ -16,7 +16,7 @@ const getImg = (slug: string, ext: string) => {
             link-text="Všechny kategorie" />
 
         <ul
-            class="mt-[3.21625rem] grid w-full grid-cols-[repeat(auto-fit,11.398125rem)] justify-center gap-[3.21625rem]">
+            class="mt-[2.395625rem] grid w-full grid-cols-[repeat(auto-fit,11.398125rem)] justify-center gap-[3.21625rem]">
             <li v-for="category in categories" :key="category.name" class="w-[11.398125rem]">
                 <RouterLink class="group flex flex-col items-center" to="/">
                     <div class="flex h-[11.794375rem] w-[11.398125rem] items-center justify-center">
