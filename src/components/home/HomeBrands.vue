@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import IconArrow from '@/components/icons/IconArrow.vue';
+import BaseTitle from '@/components/base/BaseTitle.vue';
 
 const brands = [
     { name: 'LEGO®', slug: 'lego' },
@@ -19,28 +19,24 @@ const getImg = (slug: string) => {
 </script>
 
 <template>
-    <section id="brands" class="container-center py-20">
-        <div class="flex w-full items-center justify-between">
-            <h2 class="font-secondary text-3xl">Oblíbené značky</h2>
+    <section id="brands" class="container-center mt-20">
+        <BaseTitle
+            class="flex w-full items-center justify-between"
+            title="Oblíbené značky"
+            link="/"
+            linkText="Všechny značky" />
 
-            <RouterLink
-                class="flex items-center gap-2 font-bold underline underline-offset-4"
-                to="/">
-                Všechny značky
-                <IconArrow class="-rotate-90" width="10" height="6" />
-            </RouterLink>
-        </div>
-
-        <ul class="mt-12.5 flex flex-wrap items-center justify-between gap-6 px-10">
-            <li v-for="(brand, idx) in brands" :key="idx">
+        <ul
+            class="mt-13.75 grid grid-cols-2 justify-items-center gap-y-10 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-9">
+            <li v-for="(brand, idx) in brands" :key="idx" class="w-full">
                 <RouterLink :to="'/'" class="group flex flex-col items-center">
                     <div class="flex h-16 w-24 items-center justify-center">
                         <img
                             :src="getImg(brand.slug)"
                             :alt="brand.name"
-                            class="object-cover transition-transform group-hover:scale-110" />
+                            class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-110" />
                     </div>
-                    <span class="underline">
+                    <span class="mt-2 text-center text-sm underline transition-colors">
                         {{ brand.name }}
                     </span>
                 </RouterLink>
@@ -48,9 +44,3 @@ const getImg = (slug: string) => {
         </ul>
     </section>
 </template>
-
-<style scoped>
-#brands {
-    border-top: 1px solid #f3f4f6;
-}
-</style>

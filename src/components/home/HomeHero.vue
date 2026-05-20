@@ -1,29 +1,20 @@
 <script setup lang="ts">
 import BaseDetailsBadge from '@/components/base/BaseDetailsBadge.vue';
+import Autoplay from 'embla-carousel-autoplay';
 import useEmblaCarousel from 'embla-carousel-vue';
 import { ref, watch } from 'vue';
 
 const promos = [
-    {
-        slug: 'geomag',
-        alt: 'Geomag promo',
-    },
-    {
-        slug: 'friends',
-        alt: 'Friends promo',
-    },
-    {
-        slug: 'club',
-        alt: 'Club promo',
-    },
+    { slug: 'geomag', alt: 'Geomag promo' },
+    { slug: 'friends', alt: 'Friends promo' },
+    { slug: 'club', alt: 'Club promo' },
 ];
 
 const getImg = (slug: string, ext: string) => {
     return new URL(`../../assets/images/hero/hero-${slug}.${ext}`, import.meta.url).href;
 };
 
-// const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 4000 })]);
-const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 4000 })]);
 
 const selectedIndex = ref(0);
 const scrollSnaps = ref<number[]>([]);
@@ -49,26 +40,28 @@ watch(emblaApi, (api) => {
 </script>
 
 <template>
-    <section id="hero" class="container-center mt-7.25 flex">
+    <section
+        id="hero"
+        class="container-center mt-7.25 grid grid-cols-1 gap-4 xl:grid-cols-[1fr_31.4375rem]">
         <h1 class="sr-only">Vítejte v Bambule - Království hraček</h1>
 
-        <div class="relative min-w-0 flex-1">
-            <div class="embla" ref="emblaRef">
-                <div class="embla__container">
+        <div class="relative min-w-0">
+            <div class="embla h-full" ref="emblaRef">
+                <div class="embla__container h-full">
                     <div class="embla__slide">
-                        <picture>
+                        <picture class="h-full w-full">
                             <source srcset="@img/hero/hero-mastercard.avif" type="image/avif" />
                             <img
-                                class="hero-img rounded-2xl"
+                                class="hero-img h-full w-full rounded-2xl object-cover"
                                 src="@img/hero/hero-mastercard.webp"
                                 alt="Hero mastercard" />
                         </picture>
                     </div>
                     <div class="embla__slide">
-                        <picture>
+                        <picture class="h-full w-full">
                             <source srcset="@img/hero/hero-holiday-tips.avif" type="image/avif" />
                             <img
-                                class="hero-img rounded-2xl"
+                                class="hero-img h-full w-full rounded-2xl object-cover"
                                 src="@img/hero/hero-holiday-tips.webp"
                                 alt="Holiday tips" />
                         </picture>
@@ -88,20 +81,18 @@ watch(emblaApi, (api) => {
             </div>
         </div>
 
-        <div class="ml-4 flex flex-col gap-4">
-            <div class="relative" v-for="promo in promos" :key="promo.slug">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 xl:flex xl:flex-col">
+            <div class="group relative" v-for="promo in promos" :key="promo.slug">
                 <picture>
                     <source :srcset="getImg(promo.slug, 'avif')" type="image/avif" />
                     <img
-                        class="h-38.5 w-125.75 rounded-2xl object-cover"
+                        class="aspect-2.5/1 w-full rounded-2xl object-cover xl:aspect-auto xl:h-38.5"
                         :src="getImg(promo.slug, 'webp')"
-                        width="1006"
-                        height="308"
                         :alt="`${promo.alt} promo`" />
                 </picture>
 
                 <RouterLink to="/">
-                    <BaseDetailsBadge />
+                    <BaseDetailsBadge class="transition-transform group-hover:scale-105" />
                 </RouterLink>
             </div>
         </div>
@@ -116,19 +107,23 @@ watch(emblaApi, (api) => {
 
 .embla__container {
     display: flex;
-    margin-left: -1.5rem;
+    margin-left: -1rem;
 }
 
 .embla__slide {
     flex: 0 0 100%;
     min-width: 0;
-    padding-left: 1.5rem;
+    margin-left: 1rem;
 }
 
 .hero-img {
-    width: 100%;
     height: 30.9375rem;
-    object-fit: cover;
-    display: block;
+}
+
+@media (max-width: 80rem) {
+    .hero-img {
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
 }
 </style>

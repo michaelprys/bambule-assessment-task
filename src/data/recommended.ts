@@ -15,7 +15,7 @@ export const recommended: Recommended[] = [
     {
         id: 1,
         title: 'Módní kabelky',
-        slug: 'rec-purse-pets',
+        slug: 'purse-pets',
         links: [
             { label: 'Micro', url: '#' },
             { label: 'Interaktivní', url: '#' },
@@ -26,7 +26,7 @@ export const recommended: Recommended[] = [
     {
         id: 2,
         title: 'Nejširší nabídka Lego®',
-        slug: 'rec-lego-lion',
+        slug: 'lion',
         links: [
             { label: 'Jurský svět', url: '#' },
             { label: 'Adults', url: '#' },
@@ -37,7 +37,7 @@ export const recommended: Recommended[] = [
     {
         id: 3,
         title: 'Znáte z TV',
-        slug: 'rec-paw-patrol',
+        slug: 'paw-patrol',
         links: [
             { label: 'Tlapková patrola', url: '#' },
             { label: 'Medvídek', url: '#' },

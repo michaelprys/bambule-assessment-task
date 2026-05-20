@@ -22,93 +22,80 @@ const priceOptions = [
 </script>
 
 <template>
-    <section id="search" class="container-center">
-        <div>
-            <h2 class="font-secondary text-base-black mt-13.25 text-center text-[1.875rem]">
-                Vyhledejte dokonalý dárek
-            </h2>
+    <section id="search" class="container-center px-4 md:px-6">
+        <h2
+            class="font-secondary text-base-black mt-10 text-center text-2xl lg:mt-13.25 lg:text-[1.875rem]">
+            Vyhledejte dokonalý dárek
+        </h2>
 
-            <div
-                class="mt-7 flex items-center rounded-4xl p-13.25 shadow-[0px_1px_32px_rgba(139,151,166,0.2)]">
-                <div class="flex items-center gap-6">
-                    <div class="bg-base-grey-light flex h-13 w-55 items-center rounded-2xl pl-4">
-                        <input
-                            id="boy"
-                            v-model="gender"
-                            type="radio"
-                            name="gender"
-                            value="boy"
-                            class="sr-only" />
-                        <label for="boy" class="flex cursor-pointer items-center">
-                            <span class="flex items-center gap-3">
-                                <span
-                                    class="flex h-6 w-6 items-center justify-center rounded-full transition-all duration-200"
-                                    :class="
-                                        gender === 'boy' ? 'bg-base-grey' : 'bg-base-grey-light'
-                                    ">
-                                    <span
-                                        class="bg-base-white h-2.5 w-2.5 rounded-full transition-transform duration-200"
-                                        :class="gender === 'boy' ? 'scale-100' : 'scale-0'"></span>
-                                </span>
-                                <span class="font-bold whitespace-nowrap">Pro kluka</span>
-                            </span>
-                            <img
-                                class="ml-15"
-                                src="@img/search/search-boy.svg"
-                                width="63"
-                                height="72"
-                                alt="Boy" />
-                        </label>
-                    </div>
+        <div
+            class="mt-7 flex flex-col gap-6 rounded-3xl bg-white p-5 shadow-[0px_1px_32px_rgba(139,151,166,0.2)] lg:rounded-4xl lg:p-13.25 xl:flex-row xl:items-center">
+            <div class="flex w-full flex-col gap-4 sm:flex-row xl:w-auto">
+                <label
+                    class="bg-base-grey-light flex h-14 w-full cursor-pointer items-center justify-between rounded-2xl px-4 lg:h-13 lg:w-55">
+                    <input
+                        v-model="gender"
+                        type="radio"
+                        value="boy"
+                        name="gender"
+                        class="sr-only" />
 
-                    <div class="bg-base-grey-light flex h-13 w-49.75 items-center rounded-2xl pl-4">
-                        <input
-                            id="girl"
-                            v-model="gender"
-                            type="radio"
-                            name="gender"
-                            value="girl"
-                            class="sr-only" />
-                        <label for="girl" class="flex cursor-pointer items-center gap-10">
-                            <span class="flex items-center gap-3">
-                                <span
-                                    class="flex h-6 w-6 items-center justify-center rounded-full transition-all duration-200"
-                                    :class="gender === 'girl' ? 'bg-base-grey' : 'bg-base-grey'">
-                                    <span
-                                        class="bg-base-white h-2.5 w-2.5 rounded-full transition-transform duration-200"
-                                        :class="gender === 'girl' ? 'scale-100' : 'scale-0'"></span>
-                                </span>
-                                <span class="font-bold whitespace-nowrap">Pro holku</span>
-                            </span>
-                            <img
-                                src="@img/search/search-girl.svg"
-                                width="74"
-                                height="72"
-                                alt="Girl" />
-                        </label>
-                    </div>
-                </div>
+                    <span class="flex items-center gap-3">
+                        <span
+                            class="border-base-grey/20 flex h-6 w-6 items-center justify-center rounded-full border"
+                            :class="gender === 'boy' ? 'bg-base-grey' : 'bg-white'">
+                            <span
+                                class="bg-base-white h-2.5 w-2.5 rounded-full transition"
+                                :class="gender === 'boy' ? 'scale-100' : 'scale-0'" />
+                        </span>
+                        <span class="font-bold whitespace-nowrap">Pro kluka</span>
+                    </span>
 
-                <div class="ml-auto flex items-center gap-4 whitespace-nowrap">
-                    <BaseSelect
-                        class="bg-base-grey-light h-13 rounded-2xl"
-                        v-model="age"
-                        :options="ageOptions"
-                        placeholder="Věk dítěte" />
-                    <BaseSelect
-                        class="bg-base-grey-light h-13 rounded-2xl"
-                        v-model="price"
-                        :options="priceOptions"
-                        placeholder="Max. cena" />
+                    <img class="h-12 lg:h-[72px]" src="@img/search/search-boy.svg" alt="Boy" />
+                </label>
 
-                    <BaseButtonSecondary class="flex h-13 w-50 gap-2.5 px-[2.15625em] py-5.25">
-                        <template #icon>
-                            <IconGift />
-                        </template>
+                <label
+                    class="bg-base-grey-light flex h-14 w-full cursor-pointer items-center justify-between rounded-2xl px-4 lg:h-13 lg:w-49.75">
+                    <input
+                        v-model="gender"
+                        type="radio"
+                        value="girl"
+                        name="gender"
+                        class="sr-only" />
 
-                        <span>Vyhledat dárek</span>
-                    </BaseButtonSecondary>
-                </div>
+                    <span class="flex items-center gap-3">
+                        <span
+                            class="border-base-grey/20 flex h-6 w-6 items-center justify-center rounded-full border"
+                            :class="gender === 'girl' ? 'bg-base-grey' : 'bg-base-white'">
+                            <span
+                                class="bg-base-white h-2.5 w-2.5 rounded-full transition"
+                                :class="gender === 'girl' ? 'scale-100' : 'scale-0'" />
+                        </span>
+                        <span class="font-bold whitespace-nowrap">Pro holku</span>
+                    </span>
+
+                    <img class="h-12 lg:h-18" src="@img/search/search-girl.svg" alt="Girl" />
+                </label>
+
+                <BaseSelect
+                    v-model="age"
+                    :options="ageOptions"
+                    placeholder="Věk dítěte"
+                    class="bg-base-grey-light h-14 w-full rounded-2xl lg:h-13" />
+
+                <BaseSelect
+                    v-model="price"
+                    :options="priceOptions"
+                    placeholder="Max. cena"
+                    class="bg-base-grey-light h-14 w-full rounded-2xl lg:h-13" />
+
+                <BaseButtonSecondary
+                    class="flex h-14 w-full shrink-0 justify-center gap-2.5 px-6 lg:h-13 lg:w-50">
+                    <template #icon>
+                        <IconGift />
+                    </template>
+                    <span class="whitespace-nowrap">Vyhledat dárek</span>
+                </BaseButtonSecondary>
             </div>
         </div>
     </section>

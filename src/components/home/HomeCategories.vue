@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import IconArrow from '@/components/icons/IconArrow.vue';
+import BaseTitle from '@/components/base/BaseTitle.vue';
 import { categories } from '@/data/categories.ts';
 
 const getImg = (slug: string, ext: string) => {
@@ -8,24 +8,18 @@ const getImg = (slug: string, ext: string) => {
 </script>
 
 <template>
-    <section id="categories" class="container-center flex flex-col gap-10">
-        <div class="mt-19.75 flex w-full items-center justify-between">
-            <h2 class="font-secondary text-3xl">Top kategorie</h2>
+    <section id="categories" class="container-center flex flex-col">
+        <BaseTitle
+            class="mt-20 flex w-full items-center justify-between"
+            title="Top kategorie"
+            link="/"
+            linkText="Všechny kategorie" />
 
-            <RouterLink class="flex items-center gap-2 underline" to="/">
-                Všechny kategorie
-                <IconArrow class="-rotate-90" />
-            </RouterLink>
-        </div>
-
-        <ul class="flex flex-wrap items-center justify-center gap-12">
-            <RouterLink
-                class="flex flex-col items-center"
-                to="/"
-                v-for="category in categories"
-                :key="category.name">
-                <li>
-                    <div class="bubble-shadow relative h-[11.8rem] w-[11.4rem]">
+        <ul
+            class="mt-[2.395625rem] grid grid-cols-2 justify-items-center gap-x-6 gap-y-14 px-4 sm:grid-cols-3 sm:gap-x-8 md:grid-cols-4 lg:grid-cols-6 xl:gap-x-12 xl:px-0">
+            <li v-for="category in categories" :key="category.name" class="w-full max-w-[11.4rem]">
+                <RouterLink class="group flex flex-col items-center" to="/">
+                    <div class="bubble-shadow relative aspect-[11.4/11.8] w-full">
                         <div
                             class="bubble-wrapper h-full w-full transition-transform duration-500"
                             :style="{
@@ -36,20 +30,21 @@ const getImg = (slug: string, ext: string) => {
                         </div>
 
                         <picture
-                            class="pointer-events-none absolute inset-0 z-10 flex items-center justify-center p-2">
+                            class="pointer-events-none absolute inset-0 z-10 flex items-center justify-center p-[10%]">
                             <source :srcset="getImg(category.slug, 'avif')" type="image/avif" />
                             <img
-                                class="h-[75%] w-[75%] object-contain"
+                                class="h-full w-full object-contain transition-transform duration-500 hover:scale-105"
                                 :src="getImg(category.slug, 'webp')"
                                 :alt="category.alt" />
                         </picture>
                     </div>
 
-                    <p class="mt-4 text-center text-base font-bold underline">
+                    <p
+                        class="mt-5 text-center text-[0.875rem] leading-tight font-bold underline transition-colors duration-300 sm:text-[1rem]">
                         {{ category.name }}
                     </p>
-                </li>
-            </RouterLink>
+                </RouterLink>
+            </li>
         </ul>
     </section>
 </template>

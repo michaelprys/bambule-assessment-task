@@ -10,12 +10,21 @@
 }
 
 @theme {
-    /* Base colors */
+    /* Colors */
 
     --color-base-white: #ffffff;
     --color-base-black: #000000;
     --color-base-grey: #8b97a6;
     --color-base-grey-light: rgba(190, 195, 204, 0.16);
+
+    --color-app-lime: #afca0a;
+    --color-app-lime-light: #dce390;
+    --color-app-construction: #ffd500;
+    --color-app-magenta: #e6005b;
+    --color-app-purple: #9e75b2;
+    --color-app-blue: #00b9ee;
+    --color-app-darkblue: #1961ac;
+    --color-app-pink-light: #f5f5f7;
 
     /* Shadows */
 

@@ -20,8 +20,8 @@ const getImg = (ext: string) => {
 </script>
 
 <template>
-    <div class="flex w-full flex-col gap-5">
-        <div class="overflow-hidden rounded-[2.5rem]">
+    <div class="flex h-full w-full flex-col gap-5">
+        <div class="overflow-hidden rounded-2xl">
             <picture
                 class="block aspect-[1.6/1] w-full transition-transform duration-200 hover:scale-105">
                 <source :srcset="getImg('avif')" type="image/avif" />
@@ -29,7 +29,7 @@ const getImg = (ext: string) => {
             </picture>
         </div>
 
-        <div class="flex flex-col items-start gap-4">
+        <div class="flex flex-1 flex-col items-start gap-4">
             <span
                 class="font-secondary rounded-full px-4 py-1.5 text-[0.8125rem] text-white"
                 :style="{ backgroundColor: `var(--color-app-${badgeColor})` }">
@@ -37,9 +37,14 @@ const getImg = (ext: string) => {
             </span>
 
             <h3 class="text-xl leading-tight font-bold">{{ title }}</h3>
-            <p class="line-clamp-3 text-[1.125rem] leading-relaxed text-gray-500">{{ text }}</p>
 
-            <BaseButtonPrimary @click="router.push('/')">Celý článek</BaseButtonPrimary>
+            <p class="line-clamp-3 flex-1 text-[1.125rem] leading-relaxed text-gray-500">
+                {{ text }}
+            </p>
+
+            <BaseButtonPrimary class="mt-auto" @click="router.push('/')">
+                Celý článek
+            </BaseButtonPrimary>
         </div>
     </div>
 </template>
