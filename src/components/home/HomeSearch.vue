@@ -9,94 +9,135 @@ const age = ref('');
 const price = ref('');
 
 const ageOptions = [
-    { label: '1-5', value: '1-5' },
-    { label: '6-10', value: '6-10' },
-    { label: '11-15', value: '11-15' },
+    { label: '1-5 let', value: '1-5' },
+    { label: '6-10 let', value: '6-10' },
+    { label: '11-15 let', value: '11-15' },
 ];
 
 const priceOptions = [
-    { label: '500 Kč', value: '500' },
-    { label: '1000 Kč', value: '1000' },
-    { label: '2000 Kč', value: '2000' },
+    { label: 'Do 500 Kč', value: '500' },
+    { label: 'Do 1000 Kč', value: '1000' },
+    { label: 'Do 2000 Kč', value: '2000' },
 ];
 </script>
 
 <template>
-    <section id="search" class="container-center px-4 md:px-6">
+    <section id="search" class="container-center mt-13.25 px-4 md:px-6">
         <h2
-            class="font-secondary text-base-black mt-10 text-center text-2xl lg:mt-13.25 lg:text-[1.875rem]">
+            class="font-secondary text-base-black relative z-10 mx-auto w-max translate-y-1/2 bg-white px-4 text-center text-2xl lg:text-[1.875rem]">
             Vyhledejte dokonalý dárek
         </h2>
 
         <div
-            class="mt-7 flex flex-col gap-6 rounded-3xl bg-white p-5 shadow-[0px_1px_32px_rgba(139,151,166,0.2)] lg:rounded-4xl lg:p-13.25 xl:flex-row xl:items-center">
-            <div class="flex w-full flex-col gap-4 sm:flex-row xl:w-auto">
-                <label
-                    class="bg-base-grey-light flex h-14 w-full cursor-pointer items-center justify-between rounded-2xl px-4 lg:h-13 lg:w-55">
-                    <input
-                        v-model="gender"
-                        type="radio"
-                        value="boy"
-                        name="gender"
-                        class="sr-only" />
+            class="search-form-container relative z-0 rounded-xl bg-white px-6 pt-12 pb-8 shadow-[0px_1px_32px_rgba(139,151,166,0.15)] lg:px-10 lg:pt-14 lg:pb-11.75">
+            <div class="flex flex-col gap-6 md:flex-col lg:items-center xl:flex-row">
+                <div
+                    class="grid w-full flex-1 grid-cols-1 gap-7 md:grid-cols-2 md:gap-4 xl:grid-cols-4">
+                    <label
+                        class="bg-base-grey-light flex h-13 min-w-0 cursor-pointer items-center justify-between rounded-xl pl-4 transition-colors">
+                        <input
+                            v-model="gender"
+                            type="radio"
+                            value="boy"
+                            name="gender"
+                            class="sr-only" />
 
-                    <span class="flex items-center gap-3">
-                        <span
-                            class="border-base-grey/20 flex h-6 w-6 items-center justify-center rounded-full border"
-                            :class="gender === 'boy' ? 'bg-base-grey' : 'bg-white'">
+                        <div class="flex items-center gap-3 overflow-hidden">
                             <span
-                                class="bg-base-white h-2.5 w-2.5 rounded-full transition"
-                                :class="gender === 'boy' ? 'scale-100' : 'scale-0'" />
-                        </span>
-                        <span class="font-bold whitespace-nowrap">Pro kluka</span>
-                    </span>
+                                class="bg-base-grey/50 flex h-6 w-6 shrink-0 items-center justify-center rounded-full"
+                                :class="{ 'bg-base-grey': gender === 'boy' }">
+                                <span
+                                    v-if="gender === 'boy'"
+                                    class="h-2.5 w-2.5 rounded-full bg-white"></span>
+                            </span>
+                            <span class="text-[0.9375rem] whitespace-nowrap text-black">
+                                Pro kluka
+                            </span>
+                        </div>
 
-                    <img class="h-12 lg:h-[72px]" src="@img/search/search-boy.svg" alt="Boy" />
-                </label>
+                        <img
+                            class="pointer-events-none h-18 w-15.75 shrink-0 select-none"
+                            src="@img/search/search-boy.svg"
+                            alt="Boy" />
+                    </label>
 
-                <label
-                    class="bg-base-grey-light flex h-14 w-full cursor-pointer items-center justify-between rounded-2xl px-4 lg:h-13 lg:w-49.75">
-                    <input
-                        v-model="gender"
-                        type="radio"
-                        value="girl"
-                        name="gender"
-                        class="sr-only" />
+                    <label
+                        class="bg-base-grey-light flex h-13 min-w-0 cursor-pointer items-center justify-between rounded-xl pl-4 transition-colors">
+                        <input
+                            v-model="gender"
+                            type="radio"
+                            value="girl"
+                            name="gender"
+                            class="sr-only" />
 
-                    <span class="flex items-center gap-3">
-                        <span
-                            class="border-base-grey/20 flex h-6 w-6 items-center justify-center rounded-full border"
-                            :class="gender === 'girl' ? 'bg-base-grey' : 'bg-base-white'">
+                        <div class="flex items-center gap-3 overflow-hidden">
                             <span
-                                class="bg-base-white h-2.5 w-2.5 rounded-full transition"
-                                :class="gender === 'girl' ? 'scale-100' : 'scale-0'" />
-                        </span>
-                        <span class="font-bold whitespace-nowrap">Pro holku</span>
-                    </span>
+                                class="bg-base-grey/50 flex h-6 w-6 shrink-0 items-center justify-center rounded-full"
+                                :class="{ 'bg-base-grey': gender === 'girl' }">
+                                <span
+                                    v-if="gender === 'girl'"
+                                    class="h-2.5 w-2.5 rounded-full bg-white"></span>
+                            </span>
+                            <span class="text-[0.9375rem] whitespace-nowrap text-black">
+                                Pro holku
+                            </span>
+                        </div>
 
-                    <img class="h-12 lg:h-18" src="@img/search/search-girl.svg" alt="Girl" />
-                </label>
+                        <img
+                            class="pointer-events-none h-18 w-18.5 shrink-0 select-none"
+                            src="@img/search/search-girl.svg"
+                            alt="Girl" />
+                    </label>
 
-                <BaseSelect
-                    v-model="age"
-                    :options="ageOptions"
-                    placeholder="Věk dítěte"
-                    class="bg-base-grey-light h-14 w-full rounded-2xl lg:h-13" />
+                    <BaseSelect
+                        v-model="age"
+                        :options="ageOptions"
+                        placeholder="Věk dítěte"
+                        class="bg-base-grey-light h-13 w-full rounded-xl border-none" />
 
-                <BaseSelect
-                    v-model="price"
-                    :options="priceOptions"
-                    placeholder="Max. cena"
-                    class="bg-base-grey-light h-14 w-full rounded-2xl lg:h-13" />
+                    <BaseSelect
+                        v-model="price"
+                        :options="priceOptions"
+                        placeholder="Max. cena"
+                        class="bg-base-grey-light h-13 w-full rounded-xl border-none" />
+                </div>
 
                 <BaseButtonSecondary
-                    class="flex h-14 w-full shrink-0 justify-center gap-2.5 px-6 lg:h-13 lg:w-50">
+                    class="h-13 w-full gap-3 rounded-xl px-7 lg:w-auto lg:shrink-0">
                     <template #icon>
-                        <IconGift />
+                        <IconGift class="h-5 w-5" />
                     </template>
-                    <span class="whitespace-nowrap">Vyhledat dárek</span>
+                    <span class="text-[0.9375rem] whitespace-nowrap">Vyhledat dárek</span>
                 </BaseButtonSecondary>
             </div>
         </div>
     </section>
 </template>
+
+<style scoped>
+.search-form-container :deep(.base-select__trigger) {
+    background: transparent;
+    height: 3.25rem;
+    width: 100%;
+    border: none;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-form-container :deep(.base-select__arrow) {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    pointer-events: none;
+}
+
+.search-form-container :deep(.base-select__value),
+.search-form-container :deep(.base-select__placeholder) {
+    font-size: 0.9375rem;
+    font-weight: 500;
+}
+</style>

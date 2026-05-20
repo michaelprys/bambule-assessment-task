@@ -36,7 +36,7 @@ const getImg = (ext: string) => {
                 {{ badge }}
             </span>
 
-            <h3 class="text-xl leading-tight font-bold">{{ title }}</h3>
+            <h3 class="text-xl leading-tight">{{ title }}</h3>
 
             <p class="line-clamp-3 flex-1 text-[1.125rem] leading-relaxed text-gray-500">
                 {{ text }}

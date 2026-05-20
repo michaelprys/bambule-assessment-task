@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import BaseDetailsBadge from '@/components/base/BaseDetailsBadge.vue';
-import Autoplay from 'embla-carousel-autoplay';
 import useEmblaCarousel from 'embla-carousel-vue';
+import Autoplay from 'embla-carousel-autoplay';
 import { ref, watch } from 'vue';
 
 const promos = [
@@ -42,7 +42,7 @@ watch(emblaApi, (api) => {
 <template>
     <section
         id="hero"
-        class="container-center mt-7.25 grid grid-cols-1 gap-4 xl:grid-cols-[1fr_31.4375rem]">
+        class="container-center mt-7 grid grid-cols-1 gap-4 xl:grid-cols-[1fr_31.4375rem]">
         <h1 class="sr-only">Vítejte v Bambule - Království hraček</h1>
 
         <div class="relative min-w-0">
@@ -75,24 +75,28 @@ watch(emblaApi, (api) => {
                     :key="index"
                     @click="scrollTo(index)"
                     :class="[
-                        'h-2.5 w-2.5 rounded-full transition-all',
+                        'h-2.5 w-2.5 rounded-full transition-all duration-300',
                         selectedIndex === index ? 'scale-125 bg-white' : 'bg-white/50',
                     ]"></button>
             </div>
         </div>
 
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 xl:flex xl:flex-col">
-            <div class="group relative" v-for="promo in promos" :key="promo.slug">
+            <div
+                class="group relative overflow-hidden rounded-2xl"
+                v-for="promo in promos"
+                :key="promo.slug">
                 <picture>
                     <source :srcset="getImg(promo.slug, 'avif')" type="image/avif" />
                     <img
-                        class="aspect-2.5/1 w-full rounded-2xl object-cover xl:aspect-auto xl:h-38.5"
+                        class="aspect-2.5/1 w-full rounded-2xl object-cover transition-transform duration-700 ease-out group-hover:scale-105 xl:aspect-auto xl:h-38.5"
                         :src="getImg(promo.slug, 'webp')"
                         :alt="`${promo.alt} promo`" />
                 </picture>
 
                 <RouterLink to="/">
-                    <BaseDetailsBadge class="transition-transform group-hover:scale-105" />
+                    <BaseDetailsBadge
+                        class="transition-all duration-300 ease-in-out group-hover:brightness-110" />
                 </RouterLink>
             </div>
         </div>

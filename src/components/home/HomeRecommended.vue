@@ -11,7 +11,7 @@ const getImg = (name: string, ext: string) => {
 </script>
 
 <template>
-    <section id="recommended" class="container-center mt-12 px-4 lg:mt-20 lg:px-0">
+    <section id="recommended" class="container-center mt-20 px-4">
         <h2 class="font-secondary text-3xl">Doporučujeme</h2>
 
         <div class="mt-7 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

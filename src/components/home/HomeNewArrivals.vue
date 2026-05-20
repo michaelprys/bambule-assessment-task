@@ -1,21 +1,16 @@
 <script setup lang="ts">
-import BaseTitle from '@/components/base/BaseTitle.vue';
 import ProductCard from '@/components/home/products/ProductCard.vue';
+import BaseTitle from '@/components/base/BaseTitle.vue';
 import { newArrivals } from '@/data/new-arrivals.ts';
 </script>
 
 <template>
-    <section id="new-arrivals" class="container-center py-12 lg:py-20">
-        <BaseTitle title="Novinky" link="/" linkText="Všechny novinky" class="mb-8 lg:mb-10" />
+    <section id="new-arrivals" class="container-center mt-20">
+        <BaseTitle title="Novinky" link="/" link-text="Všechny novinky" />
 
         <div
-            class="grid grid-cols-1 grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-5 xl:gap-y-12">
-            <ProductCard
-                v-for="item in newArrivals"
-                :key="item.id"
-                :product="item"
-                variant="full"
-                class="w-full" />
+            class="mt-8 grid grid-cols-1 justify-center gap-y-12 sm:grid-cols-2 sm:gap-x-4 lg:grid-cols-3 lg:gap-x-5 xl:grid-cols-4 xl:gap-x-6 xl:gap-y-16">
+            <ProductCard v-for="item in newArrivals.slice(0, 4)" :key="item.id" :product="item" />
         </div>
     </section>
 </template>

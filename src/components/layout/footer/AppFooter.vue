@@ -1,4 +1,5 @@
 <script setup lang="ts"></script>
+
 <template>
     <section class="mt-[7.47625rem]">
         <picture class="pointer-events-none select-none">

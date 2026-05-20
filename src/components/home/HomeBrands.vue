@@ -24,7 +24,7 @@ const getImg = (slug: string) => {
             class="flex w-full items-center justify-between"
             title="Oblíbené značky"
             link="/"
-            linkText="Všechny značky" />
+            link-text="Všechny značky" />
 
         <ul
             class="mt-13.75 grid grid-cols-2 justify-items-center gap-y-10 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-9">

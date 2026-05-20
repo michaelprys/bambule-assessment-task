@@ -5,7 +5,7 @@ import HeaderTopNav from '@/components/layout/header/HeaderTopNav.vue';
 </script>
 
 <template>
-    <header class="bg-base-white container-center overflow-hidden py-4 lg:py-6">
+    <header class="bg-base-white container-center relative z-100 pt-4 lg:pt-6">
         <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-4 lg:flex-nowrap">
             <RouterLink class="shrink-0" to="/">
                 <img
@@ -14,7 +14,7 @@ import HeaderTopNav from '@/components/layout/header/HeaderTopNav.vue';
                     alt="Bambule logo" />
             </RouterLink>
 
-            <div class="mx-6 hidden flex-1 lg:block xl:mx-10">
+            <div class="mx-6 hidden flex-1 lg:block">
                 <HeaderSearch />
             </div>
 
@@ -25,7 +25,7 @@ import HeaderTopNav from '@/components/layout/header/HeaderTopNav.vue';
             </div>
         </div>
 
-        <div class="mt-4 overflow-x-auto lg:border-none lg:pt-0">
+        <div class="mt-4 max-lg:overflow-x-auto lg:overflow-visible lg:border-none lg:pt-0">
             <HeaderBottomNav />
         </div>
     </header>

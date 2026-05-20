@@ -3,7 +3,7 @@ import IconSearch from '@/components/icons/IconSearch.vue';
 </script>
 
 <template>
-    <div class="relative w-full min-w-0 flex-1 xl:max-w-[538px]">
+    <div class="relative w-full min-w-0 flex-1 xl:max-w-134.5">
         <div>
             <label class="sr-only" for="toys">Search toys</label>
             <input

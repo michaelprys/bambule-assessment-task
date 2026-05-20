@@ -5,7 +5,9 @@ defineProps<{
 </script>
 
 <template>
-    <div class="font-secondary text-[0.8125rem]" :style="{ backgroundColor: bgColor }">
+    <div
+        class="font-secondary text-base-white flex h-6.25 w-fit items-center justify-center rounded-full p-2"
+        :style="{ backgroundColor: bgColor }">
         <slot />
     </div>
 </template>
