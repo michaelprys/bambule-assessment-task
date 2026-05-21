@@ -2,6 +2,10 @@
 import BaseTitle from '@/components/base/BaseTitle.vue';
 import { categories } from '@/data/categories.ts';
 
+/*
+    utils
+*/
+
 const getImg = (slug: string, ext: string) => {
     return new URL(`../../assets/images/categories/cat-${slug}.${ext}`, import.meta.url).href;
 };

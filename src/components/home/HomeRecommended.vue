@@ -3,7 +3,15 @@ import BaseButtonSecondary from '@/components/base/BaseButtonSecondary.vue';
 import { recommended } from '@/data/recommended.ts';
 import { useRouter } from 'vue-router';
 
+/*
+    composables
+*/
+
 const router = useRouter();
+
+/*
+    utils
+*/
 
 const getImg = (name: string, ext: string) => {
     return new URL(`../../assets/images/recommended/${name}.${ext}`, import.meta.url).href;

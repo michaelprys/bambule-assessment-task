@@ -5,12 +5,24 @@ import { navItems } from '@/data/navigation.ts';
 import { onClickOutside } from '@vueuse/core';
 import { ref } from 'vue';
 
+/*
+    state
+ */
+
 const activeMenu = ref<string | null>(null);
 const navRef = ref(null);
+
+/*
+    methods
+ */
 
 const toggleMenu = (label: string) => {
     activeMenu.value = activeMenu.value === label ? null : label;
 };
+
+/*
+    click outside
+ */
 
 onClickOutside(navRef, () => (activeMenu.value = null));
 </script>

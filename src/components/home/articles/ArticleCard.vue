@@ -2,7 +2,15 @@
 import BaseButtonPrimary from '@/components/base/BaseButtonPrimary.vue';
 import { useRouter } from 'vue-router';
 
+/*
+    composables
+ */
+
 const router = useRouter();
+
+/*
+    props
+ */
 
 const props = defineProps<{
     id: number;
@@ -12,6 +20,10 @@ const props = defineProps<{
     text: string;
     alt: string;
 }>();
+
+/*
+    utils
+ */
 
 const getImg = (ext: string) => {
     return new URL(`../../../assets/images/articles/article-${props.id}.${ext}`, import.meta.url)

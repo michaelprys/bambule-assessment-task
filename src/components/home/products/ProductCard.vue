@@ -6,10 +6,18 @@ import BaseBadge from '@/components/base/BaseBadge.vue';
 import IconStar from '@/components/icons/IconStar.vue';
 import { computed } from 'vue';
 
+/*
+    props
+*/
+
 const props = defineProps<{
     product: NewArrival;
     variant?: 'full' | 'compact';
 }>();
+
+/*
+    computed
+*/
 
 const isCompact = computed(() => props.variant === 'compact');
 
@@ -33,12 +41,20 @@ const ui = computed(() => ({
     img: isCompact.value ? 'h-[11.25rem] w-[11.25rem]' : 'h-[17.5rem] w-[17.5rem]',
 }));
 
-const getImg = (slug: string, ext: string) => {
-    return new URL(`../../../assets/images/products/prod-${slug}.${ext}`, import.meta.url).href;
-};
+/*
+    methods
+*/
 
 const formatPrice = (value: number) => {
     return new Intl.NumberFormat('cs-CZ').format(value);
+};
+
+/*
+    utils
+*/
+
+const getImg = (slug: string, ext: string) => {
+    return new URL(`../../../assets/images/products/prod-${slug}.${ext}`, import.meta.url).href;
 };
 </script>
 

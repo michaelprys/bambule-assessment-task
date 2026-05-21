@@ -1,4 +1,8 @@
 <script setup lang="ts">
+/*
+    props
+ */
+
 defineProps<{
     bgColor: string;
 }>();

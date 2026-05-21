@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import IconArrow from '@/components/icons/IconArrow.vue';
 
+/*
+    props
+*/
+
 defineProps<{
     title: string;
     linkText: string;

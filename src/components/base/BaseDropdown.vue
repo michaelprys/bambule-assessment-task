@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import { nextTick, onBeforeUnmount, ref, watch } from 'vue';
+import { onClickOutside, useEventListener } from '@vueuse/core';
+import { nextTick, ref, watch } from 'vue';
+
+/*
+    props, emits
+*/
 
 const props = defineProps<{
     isOpen: boolean;
@@ -9,44 +14,62 @@ const emit = defineEmits<{
     (e: 'update:isOpen', value: boolean): void;
 }>();
 
+/*
+    state
+*/
+
 const trigger = ref<HTMLElement | null>(null);
 const dropdown = ref<HTMLElement | null>(null);
-
 const top = ref(0);
 const left = ref(0);
 
-function close() {
-    emit('update:isOpen', false);
-}
+/*
+    methods
+*/
 
-function updatePosition() {
+const close = () => emit('update:isOpen', false);
+
+const updatePosition = () => {
     if (!trigger.value || !dropdown.value) return;
 
     const rect = trigger.value.getBoundingClientRect();
 
-    top.value = rect.bottom + 4;
-    left.value = rect.left;
+    let x = rect.left;
+    let y = rect.bottom + 4;
 
-    const dropdownWidth = dropdown.value.offsetWidth;
-    const dropdownHeight = dropdown.value.offsetHeight;
+    const { offsetWidth, offsetHeight } = dropdown.value;
 
-    if (left.value + dropdownWidth > window.innerWidth - 8) {
-        left.value = window.innerWidth - dropdownWidth - 8;
+    if (x + offsetWidth > innerWidth - 8) {
+        x = innerWidth - offsetWidth - 8;
     }
 
-    if (top.value + dropdownHeight > window.innerHeight - 8) {
-        top.value = rect.top - dropdownHeight - 4;
+    if (y + offsetHeight > innerHeight - 8) {
+        y = rect.top - offsetHeight - 4;
     }
-}
 
-function onClickOutside(e: MouseEvent) {
-    const target = e.target as Node;
+    left.value = x;
+    top.value = y;
+};
 
-    if (trigger.value?.contains(target)) return;
-    if (dropdown.value?.contains(target)) return;
+/*
+    click outside
+*/
 
+onClickOutside(dropdown, (e) => {
+    if (trigger.value?.contains(e.target as Node)) return;
     close();
-}
+});
+
+/*
+    listeners
+*/
+
+useEventListener(window, 'resize', updatePosition);
+useEventListener(window, 'scroll', updatePosition, true);
+
+/*
+    watchers
+*/
 
 watch(
     () => props.isOpen,
@@ -54,31 +77,9 @@ watch(
         if (!open) return;
 
         await nextTick();
-
         updatePosition();
-
-        document.addEventListener('mousedown', onClickOutside);
-        window.addEventListener('resize', updatePosition);
-        window.addEventListener('scroll', updatePosition, true);
     },
 );
-
-watch(
-    () => props.isOpen,
-    (open) => {
-        if (open) return;
-
-        document.removeEventListener('mousedown', onClickOutside);
-        window.removeEventListener('resize', updatePosition);
-        window.removeEventListener('scroll', updatePosition, true);
-    },
-);
-
-onBeforeUnmount(() => {
-    document.removeEventListener('mousedown', onClickOutside);
-    window.removeEventListener('resize', updatePosition);
-    window.removeEventListener('scroll', updatePosition, true);
-});
 </script>
 
 <template>
@@ -98,25 +99,10 @@ onBeforeUnmount(() => {
                         left: `${left}px`,
                         zIndex: 1000,
                     }"
-                    class="bg-base-white text-base-black border-base-grey/30 min-w-60 rounded-[1.75rem] border-1 p-2 shadow-xl">
+                    class="bg-base-white text-base-black border-base-grey/30 min-w-60 rounded-[1.75rem] border p-2 shadow-xl">
                     <slot />
                 </div>
             </Transition>
         </Teleport>
     </div>
 </template>
-
-<style scoped>
-.dropdown-enter-active,
-.dropdown-leave-active {
-    transition:
-        opacity 0.15s ease,
-        transform 0.15s ease;
-}
-
-.dropdown-enter-from,
-.dropdown-leave-to {
-    opacity: 0;
-    transform: translateY(6px);
-}
-</style>

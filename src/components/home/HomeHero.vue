@@ -4,20 +4,32 @@ import useEmblaCarousel from 'embla-carousel-vue';
 import Autoplay from 'embla-carousel-autoplay';
 import { ref, watch } from 'vue';
 
+/*
+    data
+*/
+
 const promos = [
     { slug: 'geomag', alt: 'Geomag promo' },
     { slug: 'friends', alt: 'Friends promo' },
     { slug: 'club', alt: 'Club promo' },
 ];
 
-const getImg = (slug: string, ext: string) => {
-    return new URL(`../../assets/images/hero/hero-${slug}.${ext}`, import.meta.url).href;
-};
+/*
+    carousel
+*/
 
 const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 4000 })]);
 
+/*
+    carousel state
+*/
+
 const selectedIndex = ref(0);
 const scrollSnaps = ref<number[]>([]);
+
+/*
+    carousel methods
+*/
 
 const scrollTo = (index: number) => emblaApi.value?.scrollTo(index);
 
@@ -30,6 +42,18 @@ const onInit = () => {
     if (!emblaApi.value) return;
     scrollSnaps.value = emblaApi.value.scrollSnapList();
 };
+
+/*
+    utils
+*/
+
+const getImg = (slug: string, ext: string) => {
+    return new URL(`../../assets/images/hero/hero-${slug}.${ext}`, import.meta.url).href;
+};
+
+/*
+    watchers
+*/
 
 watch(emblaApi, (api) => {
     if (!api) return;

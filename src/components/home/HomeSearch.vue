@@ -4,9 +4,17 @@ import BaseSelect from '@/components/base/BaseSelect.vue';
 import IconGift from '@/components/icons/IconGift.vue';
 import { ref } from 'vue';
 
+/*
+    form state
+*/
+
 const gender = ref('boy');
 const age = ref('');
 const price = ref('');
+
+/*
+   select options
+*/
 
 const ageOptions = [
     { label: '1-5 let', value: '1-5' },

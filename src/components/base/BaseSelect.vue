@@ -4,11 +4,23 @@ import IconArrow from '@/components/icons/IconArrow.vue';
 import { onClickOutside } from '@vueuse/core';
 import { ref, useTemplateRef } from 'vue';
 
+/*
+    state
+*/
+
 const target = useTemplateRef('target');
 const isOpen = ref(false);
 const model = defineModel<string | number>();
 
+/*
+    click outside
+*/
+
 onClickOutside(target, () => (isOpen.value = false));
+
+/*
+    props
+*/
 
 defineProps<{
     options: { label: string; value: string | number }[];

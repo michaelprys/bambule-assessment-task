@@ -12,7 +12,7 @@ export const navItems: NavItem[] = [
         children: [
             { label: 'Hračky pro miminka', to: '/' },
             { label: 'Stavebnice', to: '/' },
-            { label: 'Auta и modely', to: '/' },
+            { label: 'Auta a modely', to: '/' },
         ],
     },
     { label: 'Akční ceny %' },

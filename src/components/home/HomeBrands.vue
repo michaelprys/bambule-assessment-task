@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import BaseTitle from '@/components/base/BaseTitle.vue';
 
+/*
+    data
+*/
+
 const brands = [
     { name: 'LEGO®', slug: 'lego' },
     { name: 'Hasbro', slug: 'hasbro' },
@@ -12,6 +16,10 @@ const brands = [
     { name: 'Hasbro', slug: 'hasbro' },
     { name: 'Zapf', slug: 'zapf-creation' },
 ];
+
+/*
+    utils
+*/
 
 const getImg = (slug: string) => {
     return new URL(`../../assets/images/brands/logo-${slug}.svg`, import.meta.url).href;
