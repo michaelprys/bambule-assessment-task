@@ -2,6 +2,7 @@
 import BaseDetailsBadge from '@/components/base/BaseDetailsBadge.vue';
 import useEmblaCarousel from 'embla-carousel-vue';
 import Autoplay from 'embla-carousel-autoplay';
+import { getImg } from '@/utils/getImg.utils';
 import { ref, watch } from 'vue';
 
 /*
@@ -41,14 +42,6 @@ const onSelect = () => {
 const onInit = () => {
     if (!emblaApi.value) return;
     scrollSnaps.value = emblaApi.value.scrollSnapList();
-};
-
-/*
-    utils
-*/
-
-const getImg = (slug: string, ext: string) => {
-    return new URL(`../../assets/images/hero/hero-${slug}.${ext}`, import.meta.url).href;
 };
 
 /*
@@ -111,10 +104,10 @@ watch(emblaApi, (api) => {
                 v-for="promo in promos"
                 :key="promo.slug">
                 <picture>
-                    <source :srcset="getImg(promo.slug, 'avif')" type="image/avif" />
+                    <source :srcset="getImg(`hero/hero-${promo.slug}`, 'avif')" type="image/avif" />
                     <img
                         class="aspect-2.5/1 w-full rounded-2xl object-cover transition-transform duration-700 ease-out group-hover:scale-105 xl:aspect-auto xl:h-38.5"
-                        :src="getImg(promo.slug, 'webp')"
+                        :src="getImg(`hero/promo.slug`, 'webp')"
                         :alt="`${promo.alt} promo`" />
                 </picture>
 

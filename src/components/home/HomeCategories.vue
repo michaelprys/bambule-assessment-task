@@ -1,14 +1,7 @@
 <script setup lang="ts">
 import BaseTitle from '@/components/base/BaseTitle.vue';
 import { categories } from '@/data/categories.ts';
-
-/*
-    utils
-*/
-
-const getImg = (slug: string, ext: string) => {
-    return new URL(`../../assets/images/categories/cat-${slug}.${ext}`, import.meta.url).href;
-};
+import { getImg } from '@/utils/getImg.utils';
 </script>
 
 <template>
@@ -25,10 +18,12 @@ const getImg = (slug: string, ext: string) => {
                 <RouterLink class="group flex flex-col items-center" to="/">
                     <div class="flex h-[11.794375rem] w-[11.398125rem] items-center justify-center">
                         <picture>
-                            <source :srcset="getImg(category.slug, 'avif')" type="image/avif" />
+                            <source
+                                :srcset="getImg(`categories/cat-${category.slug}`, 'avif')"
+                                type="image/avif" />
                             <img
                                 class="h-full w-full object-contain"
-                                :src="getImg(category.slug, 'webp')"
+                                :src="getImg(`categories/cat-${category.slug}`, 'webp')"
                                 :alt="category.name"
                                 loading="lazy" />
                         </picture>

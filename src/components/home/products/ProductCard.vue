@@ -4,6 +4,7 @@ import BaseButtonPrimary from '@/components/base/BaseButtonPrimary.vue';
 import type { NewArrival } from '@/data/new-arrivals.ts';
 import BaseBadge from '@/components/base/BaseBadge.vue';
 import IconStar from '@/components/icons/IconStar.vue';
+import { getImg } from '@/utils/getImg.utils';
 import { computed } from 'vue';
 
 /*
@@ -48,14 +49,6 @@ const ui = computed(() => ({
 const formatPrice = (value: number) => {
     return new Intl.NumberFormat('cs-CZ').format(value);
 };
-
-/*
-    utils
-*/
-
-const getImg = (slug: string, ext: string) => {
-    return new URL(`../../../assets/images/products/prod-${slug}.${ext}`, import.meta.url).href;
-};
 </script>
 
 <template>
@@ -75,10 +68,12 @@ const getImg = (slug: string, ext: string) => {
             </div>
 
             <picture>
-                <source :srcset="getImg(product.slug, 'avif')" type="image/avif" />
+                <source
+                    :srcset="getImg(`products/prod-${product.slug}`, 'avif')"
+                    type="image/avif" />
                 <img
                     :class="['object-contain', ui.img]"
-                    :src="getImg(product.slug, 'webp')"
+                    :src="getImg(`products/prod-${product.slug}`, 'webp')"
                     loading="lazy"
                     :alt="product.title" />
             </picture>

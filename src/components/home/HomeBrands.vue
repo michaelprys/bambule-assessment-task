@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseTitle from '@/components/base/BaseTitle.vue';
+import { getImg } from '@/utils/getImg.utils';
 
 /*
     data
@@ -16,14 +17,6 @@ const brands = [
     { name: 'Hasbro', slug: 'hasbro' },
     { name: 'Zapf', slug: 'zapf-creation' },
 ];
-
-/*
-    utils
-*/
-
-const getImg = (slug: string) => {
-    return new URL(`../../assets/images/brands/logo-${slug}.svg`, import.meta.url).href;
-};
 </script>
 
 <template>
@@ -40,7 +33,7 @@ const getImg = (slug: string) => {
                 <RouterLink :to="'/'" class="group flex flex-col items-center">
                     <div class="flex h-16 w-24 items-center justify-center">
                         <img
-                            :src="getImg(brand.slug)"
+                            :src="getImg(`brands/brand-${brand.slug}`, 'svg')"
                             :alt="brand.name"
                             class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-110" />
                     </div>

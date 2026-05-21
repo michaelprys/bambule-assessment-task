@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseButtonPrimary from '@/components/base/BaseButtonPrimary.vue';
+import { getImg } from '@/utils/getImg.utils';
 import { useRouter } from 'vue-router';
 
 /*
@@ -12,7 +13,7 @@ const router = useRouter();
     props
  */
 
-const props = defineProps<{
+defineProps<{
     id: number;
     badge: string;
     badgeColor: string;
@@ -20,15 +21,6 @@ const props = defineProps<{
     text: string;
     alt: string;
 }>();
-
-/*
-    utils
- */
-
-const getImg = (ext: string) => {
-    return new URL(`../../../assets/images/articles/article-${props.id}.${ext}`, import.meta.url)
-        .href;
-};
 </script>
 
 <template>
@@ -36,8 +28,11 @@ const getImg = (ext: string) => {
         <div class="overflow-hidden rounded-2xl">
             <picture
                 class="block aspect-[1.6/1] w-full transition-transform duration-200 hover:scale-105">
-                <source :srcset="getImg('avif')" type="image/avif" />
-                <img :src="getImg('webp')" :alt="alt" class="h-full w-full object-cover" />
+                <source :srcset="getImg(`articles/article-${id}`, 'avif')" type="image/avif" />
+                <img
+                    :src="getImg(`articles/article-${id}`, 'webp')"
+                    :alt="alt"
+                    class="h-full w-full object-cover" />
             </picture>
         </div>
 

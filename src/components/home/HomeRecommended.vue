@@ -1,21 +1,10 @@
 <script setup lang="ts">
 import BaseButtonSecondary from '@/components/base/BaseButtonSecondary.vue';
 import { recommended } from '@/data/recommended.ts';
+import { getImg } from '@/utils/getImg.utils';
 import { useRouter } from 'vue-router';
 
-/*
-    composables
-*/
-
 const router = useRouter();
-
-/*
-    utils
-*/
-
-const getImg = (name: string, ext: string) => {
-    return new URL(`../../assets/images/recommended/${name}.${ext}`, import.meta.url).href;
-};
 </script>
 
 <template>
@@ -29,9 +18,11 @@ const getImg = (name: string, ext: string) => {
                 :key="rec.id"
                 class="relative h-81.25 w-full max-w-114.75 overflow-hidden rounded-3xl bg-gray-50">
                 <picture class="absolute inset-0">
-                    <source :srcset="getImg(`rec-${rec.slug}`, 'avif')" type="image/avif" />
+                    <source
+                        :srcset="getImg(`recommended/rec-${rec.slug}`, 'avif')"
+                        type="image/avif" />
                     <img
-                        :src="getImg(`rec-${rec.slug}`, 'webp')"
+                        :src="getImg(`recommended/rec-${rec.slug}`, 'webp')"
                         :alt="rec.alt"
                         class="h-full w-full object-cover" />
                 </picture>
