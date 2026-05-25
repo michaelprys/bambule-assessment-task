@@ -1,3 +1,9 @@
+:root {
+    --color-app-purple: #9e75b2;
+    --color-app-blue: #00b9ee;
+    --color-app-darkblue: #1961ac;
+}
+
 @theme {
     /* Colors */
 

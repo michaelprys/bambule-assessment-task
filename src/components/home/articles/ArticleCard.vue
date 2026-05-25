@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseButtonPrimary from '@/components/base/BaseButtonPrimary.vue';
+import type { Article } from '@/data/articles.ts';
 import { getImg } from '@/utils/getImg.utils';
 import { useRouter } from 'vue-router';
 
@@ -13,14 +14,7 @@ const router = useRouter();
     props
  */
 
-defineProps<{
-    id: number;
-    badge: string;
-    badgeColor: string;
-    title: string;
-    text: string;
-    alt: string;
-}>();
+defineProps<Article>();
 </script>
 
 <template>
